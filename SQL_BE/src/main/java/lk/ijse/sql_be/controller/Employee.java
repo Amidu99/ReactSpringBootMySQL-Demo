@@ -40,6 +40,35 @@ public class Employee {
         }
     }
 
+    @GetMapping("/get/{employeeCode}")
+    public ResponseEntity<?> getOneEmployee(@PathVariable String employeeCode){
+        boolean isExists = employeeService.existsByEmployeeCode(employeeCode);
+        if (!isExists){
+            logger.info("Not Exists Employee.");
+            return ResponseEntity.noContent().build();
+        }
+        EmployeeDTO employeeDTO = employeeService.getEmployeeByEmployeeCode(employeeCode);
+        return ResponseEntity.ok(employeeDTO);
+    }
+
+    @GetMapping("/getAll")
+    public ResponseEntity<?> getAllEmployees(){
+        List<EmployeeDTO> allEmployees = employeeService.getAllEmployees();
+        logger.info("No of all employees: "+allEmployees.size());
+        if (allEmployees.size() == 0) return ResponseEntity.ok().body("No employees found");
+        return ResponseEntity.ok().body(allEmployees);
+    }
+
+    @GetMapping("/getNextCode")
+    public ResponseEntity<?> getNextEmployeeCode(){
+        String lastEmployeeCode = employeeService.getLastEmployeeCode();
+        logger.info("Last EmployeeCode: "+lastEmployeeCode);
+        if (lastEmployeeCode==null) return ResponseEntity.ok("E-0001");
+        int nextCode = Integer.parseInt(lastEmployeeCode.replace("E-", "")) + 1;
+        logger.info("Next EmployeeCode: "+nextCode);
+        return ResponseEntity.ok(String.format("E-%04d", nextCode));
+    }
+
     private void validateEmployee(EmployeeDTO employeeDTO) {
         if (!Pattern.compile("^[E]-\\d{4}$").matcher(employeeDTO.getEmployeeCode()).matches()) {
             throw new RuntimeException("Invalid Employee Code.");
