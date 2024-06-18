@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+body {
+    background-color: rgba(10, 208, 4, 0.5) !important;
+}
+
+.navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #0ad004;
+}
+
+.navigation li {
+    padding: 14px 20px;
+}
+
+.navigation li:hover {
+    background-color: #08a204;
+}
+
+.navigation li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.navigation li a:hover {
+    color: #ddd;
+}
+
+.appFooter {
+    background-color: #0ad004;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.heading {
+    margin: 0;
+    color: #0ab705;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#users_section {
+    max-width: 100vw;
+    margin: 0;
+    padding: 5px 5px 50px;
+}
+
+.user_preview {
+    padding: 5px;
+    align-content: center;
+}
+
+.user_preview img {
+    width: 150px;
+    aspect-ratio: 1/1;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #0ab705;
+}
+
+.user_preview a {
+    text-decoration: none;
+    display: block;
+    align-content: center;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0ab705;
+}
+
+.user_preview a svg {
+    width: 28px;
+    padding-left: 8px;
+    padding-bottom: 2px;
+}
+
+.user_preview a svg path {
+    fill: rgba(10, 183, 5, 0.9);
+}
+
+.user_preview h5 {
+    text-align: center;
+    font-size: 17px;
+}
+
+#user_profile>img {
+    border: 2px solid #0ab705;
+    display: block;
+    width: 150px;
+    aspect-ratio: 1/1;
+    margin: auto;
+}
+
+#user_profile>div {
+    width: fit-content;
+    margin: auto;
+    padding-top: 25px;
+}
+
+#user_profile>div>h5 {
+    color: #0ab705;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+}
+
+#user_profile>div>h5>span {
+    color: rgba(10, 183, 5, 0.9);
+}
+
+.loading{
+    font-size: 20px;
+    font-weight: 700;
+    color: #0ab705;
+}
+
+#settings_page>svg {
+    width: 250px;
+    aspect-ratio: 1/1;
+    display: block;
+    margin: 50px auto auto;
+    animation: rotate 4s linear infinite;
+}
+
+#settings_page>svg>path {
+    fill: #0ab705;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#home_page>svg {
+    width: 300px;
+    aspect-ratio: 1/1;
+    display: block;
+    margin: 40px auto auto;
+    animation: fade 3s ease-in-out infinite;
+}
+
+#home_page>svg>path {
+    fill: #0ab705;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.75;
+    }
+}
+
+#employee_form {
+    margin: 0;
+    max-width: 100vw;
+    padding: 10px;
+}
+
+th,label{
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    color: #0ab705;
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+}
+
+.form-select {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+}
+
+select option {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #000000;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+}
+
+.table-info {
+    --bs-table-bg: rgba(207, 244, 252, 0);
+    --bs-table-striped-bg: rgba(197, 232, 239, 0.6);
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: rgba(186, 220, 227, 0.6);
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: rgba(191, 226, 233, 0.6);
+    --bs-table-hover-color: #000;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    border-color: rgb(186, 220, 227);
+}
+#employee_btns>button {
+    margin-right: 5px;
+
+}
+
+#employees_table_section {
+    max-width: 96vw;
+    display: block;
+    margin: auto;
+}
