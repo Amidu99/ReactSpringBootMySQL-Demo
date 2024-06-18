@@ -104,6 +104,9 @@ public class Employee {
         if (!Pattern.compile("^[A-Za-z\\s]{3,}$").matcher(employeeDTO.getEmployeeName()).matches()) {
             throw new RuntimeException("Invalid Employee Name.");
         }
+        if (!Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$").matcher(employeeDTO.getEmployeeEmail()).matches()) {
+            throw new RuntimeException("Invalid Email.");
+        }
         logger.info("Employee validated.");
     }
 }
