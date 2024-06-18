@@ -69,6 +69,23 @@ public class Employee {
         return ResponseEntity.ok(String.format("E-%04d", nextCode));
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<?> updateEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        try {
+            validateEmployee(employeeDTO);
+            boolean isExists = employeeService.existsByEmployeeCode(employeeDTO.getEmployeeCode());
+            if (!isExists) {
+                logger.info("Not Exists Employee.");
+                return ResponseEntity.noContent().build();
+            }
+            employeeService.updateEmployee(employeeDTO);
+            logger.info(employeeDTO.getEmployeeCode()+" : Employee updated.");
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
     private void validateEmployee(EmployeeDTO employeeDTO) {
         if (!Pattern.compile("^[E]-\\d{4}$").matcher(employeeDTO.getEmployeeCode()).matches()) {
             throw new RuntimeException("Invalid Employee Code.");
